@@ -1,0 +1,2167 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADAC & 123fahrschule | Strategische Partnerschaft für die Zukunft der Mobilität</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --adac-yellow: #ffec00;
+            --adac-dark: #333333;
+            --adac-light: #f7f7f7;
+            --adac-accent: #037bc5;
+            --123-primary: #ff5c39;
+            --123-secondary: #f4f7fa;
+            --text-dark: #222222;
+            --text-light: #5e5e5e;
+            --success: #4CAF50;
+            --warning: #f3b236;
+            --danger: #f44336;
+            --max-width: 1200px;
+            --box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+        header {
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+            height: 80px;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .connector {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 16px;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--adac-accent);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--adac-accent);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--text-dark);
+        }
+
+        /* Hero section */
+        .hero {
+            background: linear-gradient(135deg, var(--adac-accent), var(--123-primary));
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255, 255, 255, 0.05)" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,213.3C672,224,768,224,864,208C960,192,1056,160,1152,160C1248,160,1344,192,1392,208L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .button-primary {
+            background-color: white;
+            color: var(--adac-accent);
+        }
+
+        .button-primary:hover {
+            background-color: var(--adac-yellow);
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .button-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Stats section */
+        .stats {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-card {
+            background-color: var(--123-secondary);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-icon {
+            font-size: 36px;
+            color: var(--adac-accent);
+            margin-bottom: 15px;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, var(--adac-accent), var(--123-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Challenge section */
+        .challenge {
+            padding: 80px 0;
+            background-color: var(--123-secondary);
+            position: relative;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--adac-accent), var(--123-primary));
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .challenge-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .challenge-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .challenge-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .challenge-content h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .challenge-content p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .challenge-list {
+            margin-top: 20px;
+        }
+
+        .challenge-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .challenge-icon {
+            color: var(--danger);
+            font-size: 20px;
+            margin-right: 15px;
+            margin-top: 2px;
+        }
+
+        .challenge-text {
+            flex: 1;
+        }
+
+        /* Solution section */
+        .solution {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .solution-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #eee;
+            position: relative;
+        }
+
+        .tab-button {
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-light);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .tab-button::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--adac-accent), var(--123-primary));
+            transition: var(--transition);
+        }
+
+        .tab-button.active {
+            color: var(--text-dark);
+        }
+
+        .tab-button.active::after {
+            width: 100%;
+        }
+
+        .tab-button:hover {
+            color: var(--text-dark);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .solution-card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .solution-card {
+            background-color: var(--123-secondary);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .solution-card-icon {
+            font-size: 36px;
+            color: var(--123-primary);
+            margin-bottom: 20px;
+        }
+
+        .solution-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .solution-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .solution-features {
+            margin-top: 15px;
+        }
+
+        .solution-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .feature-icon {
+            color: var(--success);
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        /* Partnership model section */
+        .partnership {
+            padding: 80px 0;
+            background-color: var(--123-secondary);
+        }
+
+        .partnership-model {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .model-step {
+            display: flex;
+            width: 100%;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .model-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .model-step::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 36px;
+            width: 2px;
+            height: 40px;
+            background-color: var(--adac-accent);
+        }
+
+        .model-step:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--adac-accent), var(--123-primary));
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            border-radius: 50%;
+            margin-right: 30px;
+            z-index: 2;
+        }
+
+        .step-content {
+            flex: 1;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .step-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .step-description {
+            color: var(--text-light);
+        }
+
+        /* Benefits section */
+        .benefits {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .benefits-tabs {
+            display: flex;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .benefits-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .benefit-tab-button {
+            padding: 15px 25px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-light);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+
+        .benefit-tab-button::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--adac-accent), var(--123-primary));
+            transition: var(--transition);
+        }
+
+        .benefit-tab-button.active {
+            color: var(--text-dark);
+        }
+
+        .benefit-tab-button.active::after {
+            width: 100%;
+        }
+
+        .benefit-tab-button:hover {
+            color: var(--text-dark);
+        }
+
+        .benefit-tab-content {
+            display: none;
+        }
+
+        .benefit-tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            background-color: var(--123-secondary);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--adac-accent), var(--123-primary));
+            color: white;
+            font-size: 20px;
+            border-radius: 10px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .benefit-info {
+            flex: 1;
+        }
+
+        .benefit-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .benefit-description {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Case study section */
+        .case-study {
+            padding: 80px 0;
+            background-color: var(--123-secondary);
+        }
+
+        .case-study-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .case-study-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .case-study-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .case-study-logo {
+            width: 120px;
+            height: auto;
+            margin-right: 30px;
+        }
+
+        .case-study-title {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .case-study-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .case-study-stat {
+            text-align: center;
+        }
+
+        .case-study-stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--adac-accent);
+            margin-bottom: 5px;
+        }
+
+        .case-study-stat-label {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .case-study-content {
+            margin-bottom: 30px;
+        }
+
+        .case-study-content p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .quote {
+            padding: 20px;
+            background-color: var(--123-secondary);
+            border-left: 4px solid var(--123-primary);
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--text-light);
+        }
+
+        .quote-author {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-top: 10px;
+            font-style: normal;
+        }
+
+        /* Timeline section */
+        .timeline {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: var(--adac-accent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-content {
+            position: relative;
+            width: calc(50% - 30px);
+            padding: 25px;
+            background-color: var(--123-secondary);
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -10px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--123-secondary);
+            transform: rotate(45deg);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--123-secondary);
+            transform: rotate(45deg);
+        }
+
+        .timeline-date {
+            position: absolute;
+            top: 20px;
+            width: 120px;
+            padding: 5px 10px;
+            background: linear-gradient(135deg, var(--adac-accent), var(--123-primary));
+            color: white;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-date {
+            left: -140px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-date {
+            right: -140px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: var(--adac-accent);
+            border-radius: 50%;
+            border: 3px solid white;
+            z-index: 10;
+        }
+
+        .timeline-title {
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .timeline-description {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* CTA section */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--adac-accent), var(--123-primary));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255, 255, 255, 0.05)" d="M0,96L48,106.7C96,117,192,139,288,133.3C384,128,480,96,576,101.3C672,107,768,149,864,149.3C960,149,1056,107,1152,96C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background-color: var(--123-secondary);
+        }
+
+        .accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            margin-bottom: 15px;
+            border-radius: 10px;
+            background-color: white;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .accordion-button {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            background-color: white;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        .accordion-button:hover {
+            background-color: var(--123-secondary);
+        }
+
+        .accordion-icon {
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-text {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+        }
+
+        .accordion-item.active .accordion-button {
+            background-color: var(--123-secondary);
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 1000px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .contact-description {
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--adac-accent), var(--123-primary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-text {
+            flex: 1;
+        }
+
+        .contact-label {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .contact-value {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .contact-form {
+            background-color: var(--123-secondary);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--adac-accent);
+            box-shadow: 0 0 0 3px rgba(3, 123, 197, 0.1);
+        }
+
+        textarea.form-input {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-button {
+            background: linear-gradient(135deg, var(--adac-accent), var(--123-primary));
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .form-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--adac-dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-logos {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .footer-description {
+            color: #ccc;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background-color: var(--adac-accent);
+            transform: translateY(-2px);
+        }
+
+        .footer-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--adac-yellow);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link {
+            margin-bottom: 10px;
+        }
+
+        .footer-link a {
+            text-decoration: none;
+            color: #ccc;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+
+        .footer-link a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-contact-info {
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-contact-icon {
+            margin-right: 10px;
+            color: var(--adac-yellow);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #999;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--adac-accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: var(--box-shadow);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 100;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--123-primary);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background-color: white;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 10px;
+            padding: 30px;
+            position: relative;
+            animation: scaleIn 0.3s ease;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--danger);
+        }
+
+        .modal-header {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .modal-body {
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #aaa;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 30px;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .challenge-grid,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .challenge-image {
+                order: -1;
+            }
+
+            .timeline-container::before {
+                left: 40px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content::before,
+            .timeline-item:nth-child(even) .timeline-content::before {
+                left: -10px;
+                right: auto;
+            }
+
+            .timeline-date {
+                position: relative;
+                left: 0 !important;
+                right: 0 !important;
+                top: 0;
+                margin-bottom: 10px;
+                width: auto;
+                display: inline-block;
+            }
+
+            .timeline-dot {
+                left: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .cta-buttons,
+            .solution-tabs,
+            .benefits-tabs {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .tab-button,
+            .benefit-tab-button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .case-study-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                height: 40px;
+            }
+
+            .connector {
+                font-size: 18px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .stat-number {
+                font-size: 28px;
+            }
+
+            .step-number {
+                min-width: 60px;
+                height: 60px;
+                font-size: 20px;
+            }
+
+            .timeline-content {
+                padding: 15px;
+            }
+
+            .cta h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="https://assets.adac.de/image/upload/f_auto,w_1280,c_limit,t_16:9_720x405/v1635402976/Mitgliedschaft/mitgliedschaft-strassenwachtfahrer-axmzkm" alt="ADAC Logo" class="logo">
+                <span class="connector">×</span>
+                <img src="https://media.123fahrschule.de/wp-content/uploads/2024/05/06170309/app-auto-teaser-1024x768.jpg?format=webp&width=1024" alt="123fahrschule Logo" class="logo">
+            </div>
+            <nav>
+                <button class="hamburger" id="hamburger-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#challenge">Herausforderung</a></li>
+                    <li><a href="#solution">Lösung</a></li>
+                    <li><a href="#partnership">Partnerschaft</a></li>
+                    <li><a href="#benefits">Vorteile</a></li>
+                    <li><a href="#case-study">Erfolgsmodell</a></li>
+                    <li><a href="#timeline">Zeitplan</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Digitale Transformation der Fahrausbildung</h1>
+                <p>Eine strategische Partnerschaft zwischen ADAC und 123fahrschule für bezahlbare Mobilität für alle und die Zukunft der Fahrausbildung in Deutschland.</p>
+                <div class="cta-buttons">
+                    <a href="#solution" class="button button-primary">Lösung entdecken</a>
+                    <a href="#contact" class="button button-secondary">Kontakt aufnehmen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-euro-sign"></i></div>
+                    <div class="stat-number">3 Mrd. €</div>
+                    <div class="stat-label">Gesamtmarkt Deutschland p.a.</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-number">1 Mio.</div>
+                    <div class="stat-label">Fahrschüler jährlich</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="stat-number">20%</div>
+                    <div class="stat-label">Zielmarktanteil in 5 Jahren</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-euro-sign"></i></div>
+                    <div class="stat-number">600 Mio. €</div>
+                    <div class="stat-label">Umsatzpotenzial</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge Section -->
+    <section class="challenge" id="challenge">
+        <div class="container">
+            <div class="section-heading">
+                <h2 class="section-title">Die Herausforderung</h2>
+                <p class="section-subtitle">Der Führerschein wird zum Luxusgut – bezahlbare Mobilität steht auf dem Spiel</p>
+            </div>
+            <div class="challenge-grid">
+                <div class="challenge-content">
+                    <h3>Der Führerschein wird unerschwinglich</h3>
+                    <p>In den letzten Jahren haben sich die Kosten für den Erwerb eines Führerscheins der Klasse B dramatisch erhöht. Was einst ein Standardmeilenstein für junge Erwachsene war, entwickelt sich zunehmend zu einer erheblichen finanziellen Belastung.</p>
+                    <p>Der ADAC-Präsident Christian Reinicke stellt besorgt fest: <em>"Der Führerschein kostet inzwischen oft über 4000 Euro. Es darf nicht sein, dass eine steigende Zahl junger Menschen sich den Führerschein nicht mehr leisten kann."</em></p>
+                    <div class="challenge-list">
+                        <div class="challenge-item">
+                            <div class="challenge-icon"><i class="fas fa-euro-sign"></i></div>
+                            <div class="challenge-text">
+                                <strong>Drastische Kostensteigerung:</strong> Durchschnittlich 4.000€ pro Führerschein, in Großstädten sogar bis zu 5.500€
+                            </div>
+                        </div>
+                        <div class="challenge-item">
+                            <div class="challenge-icon"><i class="fas fa-chart-line"></i></div>
+                            <div class="challenge-text">
+                                <strong>30% Preisanstieg:</strong> Innerhalb von nur fünf Jahren haben sich die Kosten um fast ein Drittel erhöht
+                            </div>
+                        </div>
+                        <div class="challenge-item">
+                            <div class="challenge-icon"><i class="fas fa-user-minus"></i></div>
+                            <div class="challenge-text">
+                                <strong>Fahrlehrermangel:</strong> 30% Rückgang der Fahrlehrer in den letzten zehn Jahren
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="challenge-image">
+                    <img src="https://media.123fahrschule.de/wp-content/uploads/2024/05/06161032/ratenzahlung-03-teaser-1-1024x768.jpg?format=webp&width=1024" alt="Führerschein-Kosten Herausforderung">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution" id="solution">
+        <div class="container">
+            <div class="section-heading">
+                <h2 class="section-title">Unsere Lösung</h2>
+                <p class="section-subtitle">Digitale Transformation der Fahrausbildung für bezahlbare und zugängliche Mobilität</p>
+            </div>
+            <div class="solution-tabs">
+                <button class="tab-button active" data-tab="tab-online">Onlinetheorie</button>
+                <button class="tab-button" data-tab="tab-simulator">Fahrsimulatoren</button>
+                <button class="tab-button" data-tab="tab-app">KI-gestützte Lernapp</button>
+            </div>
+            <div class="tab-content active" id="tab-online">
+                <div class="solution-card-container">
+                    <div class="solution-card">
+                        <div class="solution-card-icon"><i class="fas fa-laptop"></i></div>
+                        <h3>Digitaler Theorieunterricht</h3>
+                        <p>Ab 2026 ermöglicht die gesetzliche Grundlage für anteiligen Online-Theorieunterricht eine flexible, ortsunabhängige Lernumgebung. Dies reduziert Reisezeiten und -kosten für Fahrschüler.</p>
+                        <div class="solution-features">
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Flexibles Lernen ohne Präsenzpflicht</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Reduzierte Kosten durch optimierte Lernprozesse</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Höhere Erfolgsquoten durch individuelle Lernpfade</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-card-icon"><i class="fas fa-brain"></i></div>
+                        <h3>KI-gestützte Lernplattform</h3>
+                        <p>Unsere hochmoderne KI-Technologie personalisiert Lerninhalte für jeden Fahrschüler basierend auf seinem individuellen Lernfortschritt und identifizierten Wissenslücken.</p>
+                        <div class="solution-features">
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Dynamische Anpassung an individuelles Lerntempo</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Frühzeitige Erkennung von Verständnisproblemen</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Gezielte Vorbereitung auf die Theorieprüfung</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-card-icon"><i class="fas fa-chart-bar"></i></div>
+                        <h3>Permanente Fortschrittskontrolle</h3>
+                        <p>Unser kontinuierliches Assessment-System überwacht und dokumentiert den Lernprozess, um Fahrschülern und Fahrlehrern jederzeit einen klaren Überblick über den aktuellen Ausbildungsstand zu geben.</p>
+                        <div class="solution-features">
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Transparente Leistungsübersicht</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Bedarfsgerechte Zuweisung von Fahrstunden</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Objektive Bewertung der Fahrkompetenzen</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="tab-simulator">
+                <div class="solution-card-container">
+                    <div class="solution-card">
+                        <div class="solution-card-icon"><i class="fas fa-car"></i></div>
+                        <h3>Fortschrittliche Simulationstechnologie</h3>
+                        <p>Die proprietäre Simulationstechnologie von Foerst GmbH (Teil der 123fahrschule) bietet eine realistische und immersive Lernumgebung für Fahrschüler, um grundlegende Fähigkeiten zu entwickeln.</p>
+                        <div class="solution-features">
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>180-Grad-Rundumsicht für realistische Verkehrsszenarien</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Force-Feedback und Head-Tracking für authentisches Fahrgefühl</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>ISO 9001-zertifizierte Qualität und Präzision</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-card-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Gefahrensituationen risikolos trainieren</h3>
+                        <p>Mit unseren Simulatoren können kritische Verkehrsszenarien beliebig oft und ohne reales Risiko trainiert werden - ein entscheidender Vorteil für die Entwicklung von Sicherheitsbewusstsein.</p>
+                        <div class="solution-features">
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Training von Notfallsituationen ohne Gefährdung</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Wiederholbares Üben komplexer Szenarien</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Aufbau von Selbstvertrauen vor realen Fahrstunden</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-card-icon"><i class="fas fa-money-bill-wave"></i></div>
+                        <h3>Kosteneffizientes Training</h3>
+                        <p>Durch den strategischen Einsatz von Simulatoren können notwendige Praxisstunden reduziert werden, was zu erheblichen Einsparungen für Fahrschüler führt und gleichzeitig die Ausbildungsqualität verbessert.</p>
+                        <div class="solution-features">
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Reduzierung der Gesamtkosten um bis zu 20%</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Optimale Nutzung realer Fahrstunden durch Vorbereitung</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Standardisierte Ausbildungsqualität durch einheitliche Szenarien</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="tab-app">
+                <div class="solution-card-container">
+                    <div class="solution-card">
+                        <div class="solution-card-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h3>Integrierte mobile Lernplattform</h3>
+                        <p>Unsere speziell entwickelte App begleitet Fahrschüler durch den gesamten Ausbildungsprozess - von der Theorie über die Praxisvorbereitung bis zur Verwaltung aller Termine und Zahlungen.</p>
+                        <div class="solution-features">
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Lernen jederzeit und überall möglich</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Nahtlose Integration mit allen Ausbildungsphasen</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Einfache Benutzeroberfläche für maximale Zugänglichkeit</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-card-icon"><i class="fas fa-user-cog"></i></div>
+                        <h3>Personalisierte Lernpläne</h3>
+                        <p>Der KI-Algorithmus erstellt maßgeschneiderte Lernpläne basierend auf individuellen Stärken, Schwächen und Lernfortschritten, um den Ausbildungsprozess für jeden Fahrschüler zu optimieren.</p>
+                        <div class="solution-features">
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Identifikation persönlicher Lernmuster</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Automatische Anpassung der Schwierigkeitsgrade</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Erinnerungen und Lernempfehlungen</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-card-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <h3>Direktbuchung und Bezahlung</h3>
+                        <p>Die vollintegrierte App ermöglicht die direkte Buchung von Fahrstunden, Transparenz über alle anstehenden Termine und die bequeme Abwicklung aller Zahlungen - vollständig digital und papierlos.</p>
+                        <div class="solution-features">
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Echtzeit-Verfügbarkeit von Fahrlehrern</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Flexible Zahlungsoptionen und -pläne</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Vollständige Kostenübersicht und -kontrolle</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Model Section -->
+    <section class="partnership" id="partnership">
+        <div class="container">
+            <div class="section-heading">
+                <h2 class="section-title">Das Partnerschaftsmodell</h2>
+                <p class="section-subtitle">Eine innovative Kooperation zwischen ADAC und 123fahrschule</p>
+            </div>
+            <div class="partnership-model">
+                <div class="model-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Kooperationskonzept für freie Fahrschulen</h3>
+                        <p class="step-description">Unser maßgeschneidertes Kooperationsmodell wurde speziell für unabhängige Fahrschulen entwickelt. Es bewahrt die unternehmerische Eigenständigkeit der Fahrschulinhaber und stärkt gleichzeitig ihre Marktposition durch das gemeinsame Auftreten unter der vertrauenswürdigen Doppelmarke ADAC × 123fahrschule.</p>
+                    </div>
+                </div>
+                <div class="model-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Gemeinsame Standards und zentrale Ressourcen</h3>
+                        <p class="step-description">Die Partnerschaft definiert einheitliche Qualitätsstandards und ein konsistentes Markenauftreten. Partner profitieren von gebündelter Einkaufsmacht und zentraler Ressourcennutzung, darunter digitale Infrastruktur, Marketingmaterialien und Schulungsunterlagen. Dies führt zu erheblichen Kosteneinsparungen und Effizienzsteigerungen.</p>
+                    </div>
+                </div>
+                <div class="model-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Digitale Transformation ohne Eigeninvestition</h3>
+                        <p class="step-description">Kooperationspartner erhalten Zugang zu unserer gesamten digitalen Infrastruktur ohne eigene Investitionskosten. Dies umfasst die KI-gestützte Lernplattform, Simulatoren, die Fahrschüler-App und vollintegrierte Verwaltungssoftware. Die technische Implementation und Wartung erfolgt zentral durch 123fahrschule.</p>
+                    </div>
+                </div>
+                <div class="model-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Nachfolgelösung für aussteigende Fahrschulinhaber</h3>
+                        <p class="step-description">Das Modell bietet eine attraktive Nachfolgelösung für Fahrschulinhaber, die in den Ruhestand gehen möchten. Durch die strukturierte Übernahme und Integration in das Netzwerk wird der Werterhalt des Unternehmens gesichert und die Verfügbarkeit von Fahrausbildungsplätzen in der Region gewährleistet.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="section-heading">
+                <h2 class="section-title">Vorteile der Partnerschaft</h2>
+                <p class="section-subtitle">Klare Mehrwerte für alle Beteiligten</p>
+            </div>
+            <div class="benefits-tabs">
+                <button class="benefit-tab-button active" data-tab="tab-students">Für Fahrschüler</button>
+                <button class="benefit-tab-button" data-tab="tab-partners">Für Fahrschulen</button>
+                <button class="benefit-tab-button" data-tab="tab-adac">Für den ADAC</button>
+                <button class="benefit-tab-button" data-tab="tab-society">Für die Gesellschaft</button>
+            </div>
+            <div class="benefit-tab-content active" id="tab-students">
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-euro-sign"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Geringere Kosten</h4>
+                            <p class="benefit-description">Durch optimierte Lernprozesse und digitale Lösungen können die Gesamtkosten für den Führerschein um bis zu 20% reduziert werden.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-clock"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Zeitersparnis</h4>
+                            <p class="benefit-description">Flexibles Online-Lernen und die Möglichkeit, von überall aus auf Lernmaterialien zuzugreifen, reduzieren die notwendige Anwesenheitszeit.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Bessere Ausbildungsqualität</h4>
+                            <p class="benefit-description">Personalisierte Lernpfade und adaptive Übungen führen zu höheren Bestehensquoten und besser vorbereiteten Fahranfängern.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Moderne Lernmethoden</h4>
+                            <p class="benefit-description">Mit Smartphones, Tablets und interaktiven Simulatoren entspricht die Ausbildung den Gewohnheiten der digitalen Generation.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Vertrauenswürdige Marken</h4>
+                            <p class="benefit-description">Die Kombination aus ADAC-Vertrauen und 123fahrschule-Innovation steht für höchste Qualitätsstandards und Zuverlässigkeit.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-tag"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Exklusive Zusatzangebote</h4>
+                            <p class="benefit-description">Vergünstigte ADAC-Mitgliedschaften, spezielle Fahranfänger-Versicherungen und kostenlose Sicherheitstrainings nach Führerscheinerwerb.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="benefit-tab-content" id="tab-partners">
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Höherer Kundenzustrom</h4>
+                            <p class="benefit-description">Durch die Strahlkraft der Doppelmarke ADAC × 123fahrschule und professionelles zentrales Marketing erhöht sich die Kundengewinnung signifikant.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-laptop-code"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Digitale Infrastruktur ohne Investition</h4>
+                            <p class="benefit-description">Zugang zu modernster Technologie ohne eigene Entwicklungskosten oder IT-Expertise - vollständig implementiert und gewartet.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Optimierte Kostenstruktur</h4>
+                            <p class="benefit-description">Erhebliche Einsparungen durch gebündelte Einkaufsmacht für Fahrzeuge, Versicherungen, Simulatoren und Marketing.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-tasks"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Weniger Verwaltungsaufwand</h4>
+                            <p class="benefit-description">Automatisierte Prozesse für Terminplanung, Abrechnung und Dokumentation reduzieren den administrativen Aufwand erheblich.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-users"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Netzwerkvorteile</h4>
+                            <p class="benefit-description">Erfahrungsaustausch, gemeinsame Ressourcennutzung und Vertretungsmöglichkeiten durch das große Partnernetzwerk.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-home"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Attraktive Nachfolgelösung</h4>
+                            <p class="benefit-description">Strukturierte Übergabemodelle für ausscheidende Fahrschulinhaber mit fairer Bewertung und Werterhalt des Unternehmens.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="benefit-tab-content" id="tab-adac">
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-user-plus"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Mitgliedergewinnung</h4>
+                            <p class="benefit-description">Systematische Integration der Mitgliedergewinnung in den Ausbildungsprozess mit gezielter Ansprache der strategisch wichtigen Zielgruppe der Fahranfänger.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-handshake"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Cross-Selling-Potenziale</h4>
+                            <p class="benefit-description">Vertriebskanal für risikoadjustierte Versicherungsprodukte, Fahrsicherheitstrainings und weitere ADAC-Leistungen durch nahtlose Integration.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-calendar-check"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Auslastungssteigerung</h4>
+                            <p class="benefit-description">Deutliche Erhöhung der Auslastung der ADAC-Fahrsicherheitszentren durch systematische Einbindung in das Ausbildungskonzept.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-bullhorn"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Markenaktualisierung</h4>
+                            <p class="benefit-description">Positiver Imagetransfer durch die Verbindung mit dem innovativen, digitalen Konzept der 123fahrschule, besonders bei der jungen Zielgruppe.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-check-double"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Satzungszweckerfüllung</h4>
+                            <p class="benefit-description">Direkte Unterstützung der ADAC-Satzungszwecke "Förderung der Mobilität" und "Förderung der Verkehrssicherheit" durch moderne Ausbildungskonzepte.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-chart-pie"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Marktführerschaft</h4>
+                            <p class="benefit-description">Realisierung einer marktführenden Position im 3-Milliarden-Euro-Fahrschulmarkt mit einem Zielmarktanteil von 20% innerhalb von 5 Jahren.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="benefit-tab-content" id="tab-society">
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-euro-sign"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Bezahlbare Mobilität</h4>
+                            <p class="benefit-description">Sicherstellung des Zugangs zu individueller Mobilität für alle Bevölkerungsschichten durch kostengünstigere Ausbildungsmodelle.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-car-crash"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Erhöhte Verkehrssicherheit</h4>
+                            <p class="benefit-description">Besser ausgebildete Fahranfänger und intensive Vorbereitung auf kritische Situationen durch Simulatortraining führen zu weniger Unfällen.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-map-marked-alt"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Flächendeckende Verfügbarkeit</h4>
+                            <p class="benefit-description">Sicherstellung der Fahrausbildung auch in ländlichen Regionen, wo der Fahrlehrermangel besonders akut ist und individuelle Mobilität unerlässlich.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-leaf"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Ökologische Vorteile</h4>
+                            <p class="benefit-description">Reduzierter Kraftstoffverbrauch durch Simulatortraining sowie verstärkte Ausbildung zu kraftstoffsparendem und effizientem Fahren.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-user-graduate"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Digitale Bildungskompetenz</h4>
+                            <p class="benefit-description">Förderung digitaler Lernkompetenzen und moderner Bildungsansätze durch innovative und technologiegestützte Ausbildungsmethoden.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-briefcase"></i></div>
+                        <div class="benefit-info">
+                            <h4 class="benefit-title">Arbeitsmarktperspektiven</h4>
+                            <p class="benefit-description">Attraktivere Arbeitsbedingungen und Karriereperspektiven für Fahrlehrer durch moderne Ausbildungskonzepte und digitalisierte Prozesse.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section class="case-study" id="case-study">
+        <div class="container">
+            <div class="section-heading">
+                <h2 class="section-title">Erfolgsmodell ANWB</h2>
+                <p class="section-subtitle">Ein bewährtes Konzept aus den Niederlanden als Vorbild</p>
+            </div>
+            <div class="case-study-container">
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <img src="https://www.anwb.nl/binaries/content/gallery/anwb/logo/anwb-logo.svg" alt="ANWB Logo" class="case-study-logo">
+                        <h3 class="case-study-title">Der ANWB als größter Fahrschulanbieter der Niederlande</h3>
+                    </div>
+                    <div class="case-study-stats">
+                        <div class="case-study-stat">
+                            <div class="case-study-stat-number">67</div>
+                            <div class="case-study-stat-label">Fahrschulen</div>
+                        </div>
+                        <div class="case-study-stat">
+                            <div class="case-study-stat-number">#1</div>
+                            <div class="case-study-stat-label">Marktposition</div>
+                        </div>
+                        <div class="case-study-stat">
+                            <div class="case-study-stat-number">92%</div>
+                            <div class="case-study-stat-label">Kundenzufriedenheit</div>
+                        </div>
+                    </div>
+                    <div class="case-study-content">
+                        <p>Der niederländische Automobilclub ANWB (Algemene Nederlandse Wielrijders-Bond) hat erfolgreich demonstriert, wie ein Automobilclub zum führenden Anbieter von Fahrausbildung werden kann. Mit einem Netzwerk von 67 Fahrschulen ist der ANWB heute der größte Fahrschulanbieter der Niederlande.</p>
+                        <p>Das Erfolgsrezept des ANWB basiert auf fünf Kernprinzipien:</p>
+                        <ul>
+                            <li><strong>Individuelle Betreuung:</strong> Maßgeschneiderte Lernpläne für jeden Fahrschüler</li>
+                            <li><strong>Qualifizierte Fahrlehrer:</strong> Hochwertige Ausbildung und kontinuierliche Weiterbildung</li>
+                            <li><strong>Moderne Fahrzeuge:</strong> Hohe Sicherheitsstandards und aktuelle Modelle</li>
+                            <li><strong>Flexible Terminplanung:</strong> Anpassung an individuelle Bedürfnisse</li>
+                            <li><strong>Umfassendes Angebot:</strong> Von Theorie bis Praxis aus einer Hand</li>
+                        </ul>
+                        <p>Besonders bemerkenswert ist die erfolgreiche Integration von Clubmitgliedschaft, Versicherungsangeboten und Fahrausbildung in ein ganzheitliches Mobilitätskonzept. Dies führt zu signifikanten Cross-Selling-Erfolgen und einer langfristigen Kundenbindung.</p>
+                        <div class="quote">
+                            "Das Modell des ANWB zeigt eindrucksvoll, wie ein Automobilclub durch die Integration von Fahrausbildung seine Marktposition stärken und gleichzeitig einen wertvollen Beitrag zur Verkehrssicherheit leisten kann. Es ist das perfekte Vorbild für unsere Partnerschaft mit dem ADAC."
+                            <div class="quote-author">Marc Hennerici, Leiter Business Development Franchise, 123fahrschule</div>
+                        </div>
+                        <p>Die Parallelen zwischen dem niederländischen und dem deutschen Markt sind deutlich. Mit dem ANWB als erfolgreichem Vorbild und den zusätzlichen digitalen Innovationen der 123fahrschule ist das Potenzial für eine erfolgreiche Umsetzung in Deutschland außerordentlich hoch.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline" id="timeline">
+        <div class="container">
+            <div class="section-heading">
+                <h2 class="section-title">Umsetzungsplan</h2>
+                <p class="section-subtitle">Strukturierter Zeitplan für eine erfolgreiche Implementation</p>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Q2 2025</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Konzeption und Partnering</h3>
+                        <p class="timeline-description">Detaillierte Ausarbeitung des Kooperationskonzepts, Verhandlungen mit dem ADAC, Definition der Qualitätsstandards und Markenrichtlinien, Erstellung des Franchise-Handbuchs.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Q3 2025</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Markenpartner-Akquisition</h3>
+                        <p class="timeline-description">Intensive Verhandlungen mit dem ADAC und potenziellen alternativen Markenpartnern, Abschluss eines Markenlizenzvertrags, Festlegung der Governance-Struktur und Kooperationsvereinbarungen.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Q4 2025</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Systemaufbau</h3>
+                        <p class="timeline-description">Erweiterung der bestehenden digitalen Infrastruktur, Integration der ADAC-Angebote, Entwicklung des Kooperationspartner-Onboardings, Schulung der Mitarbeiter, Vorbereitung der Marketingmaterialien.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Q1 2026</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Launch und erste Kooperationspartner</h3>
+                        <p class="timeline-description">Offizielle Ankündigung der Partnerschaft, Start des Pilotprojekts mit ausgewählten Fahrschulen in verschiedenen Regionen, intensive Begleitung und Optimierung der Prozesse.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Q2 2026</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Integration des Online-Theorieunterrichts</h3>
+                        <p class="timeline-description">Implementierung des digitalen Theorieunterrichts gemäß der neuen gesetzlichen Grundlage, Schulung der Kooperationspartner, Optimierung der Lernplattform basierend auf ersten Erfahrungen.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Ab Q3 2026</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Systematische Skalierung</h3>
+                        <p class="timeline-description">Bundesweite Ausrollung des Kooperationsmodells, konsequente Partnerschule-Akquise, regionale Expansionsstrategie, kontinuierliche Optimierung der Prozesse und Systeme.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-heading">
+                <h2 class="section-title">Häufig gestellte Fragen</h2>
+                <p class="section-subtitle">Antworten auf die wichtigsten Fragen zur Partnerschaft</p>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-button">
+                        Wie unterscheidet sich das Kooperationsmodell von einem klassischen Franchise-System?
+                        <i class="accordion-icon fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-text">
+                            Unser Kooperationsmodell legt besonderen Wert auf die Bewahrung der unternehmerischen Eigenständigkeit der Fahrschulinhaber. Im Gegensatz zu klassischen Franchise-Systemen bleiben die Fahrschulen rechtlich unabhängig und behalten ihre eigene Identität, ergänzt durch die Doppelmarke. Es gibt keine starren Vorgaben zu Ausstattung oder Gestaltung, sondern flexible Qualitätsstandards, die an die individuellen Gegebenheiten angepasst werden können. Zudem sind die Einstiegskosten und laufenden Gebühren deutlich niedriger als bei traditionellen Franchise-Konzepten.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-button">
+                        Welche Investitionen sind für Kooperationspartner erforderlich?
+                        <i class="accordion-icon fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-text">
+                            Die Einstiegsinvestitionen sind bewusst niedrig gehalten. Kooperationspartner zahlen eine moderate Einstiegsgebühr und einen monatlichen Beitrag, der sich nach der Größe der Fahrschule richtet. Im Gegenzug erhalten sie Zugang zur gesamten digitalen Infrastruktur ohne eigene Entwicklungs- oder Implementierungskosten. Die laufenden Gebühren werden durch Kosteneinsparungen bei Einkauf, Marketing und Verwaltung sowie durch höhere Kundengewinnung mehr als kompensiert. Flexible Finanzierungsmodelle erleichtern zudem den Einstieg.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-button">
+                        Wie wird die Qualität in allen teilnehmenden Fahrschulen sichergestellt?
+                        <i class="accordion-icon fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-text">
+                            Die Qualitätssicherung erfolgt durch mehrere Maßnahmen: Erstens durchlaufen alle Kooperationspartner und ihre Mitarbeiter regelmäßige Schulungen zu den digitalen Systemen und pädagogischen Konzepten. Zweitens ermöglicht die digitale Infrastruktur ein kontinuierliches Monitoring der Lernfortschritte und Prüfungsergebnisse. Drittens sorgt ein systematisches Kundenfeedback-System für ständige Verbesserungen. Ein gemeinsames Steering-Komitee aus Vertretern des ADAC und der 123fahrschule überwacht die Einhaltung der Qualitätsstandards und entwickelt diese kontinuierlich weiter.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-button">
+                        Welche Rolle spielen die Fahrsimulatoren in der Ausbildung?
+                        <i class="accordion-icon fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-text">
+                            Fahrsimulatoren dienen als wertvolle Ergänzung zur praktischen Ausbildung, nicht als Ersatz. Sie werden für drei Hauptzwecke eingesetzt: Erstens zur Vermittlung grundlegender Fahrzeugbedienung vor den ersten realen Fahrstunden, was die Effizienz der praktischen Fahrstunden erhöht. Zweitens zum sicheren Training kritischer Verkehrssituationen, die im Realverkehr nicht planbar sind (z.B. Notbremsungen, plötzliche Hindernisse). Drittens zur intensiven Vorbereitung auf spezielle Fahraufgaben (
