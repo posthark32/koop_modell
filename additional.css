@@ -1,0 +1,568 @@
+/* Additional CSS for specific page elements */
+
+/* For fahrschueler.html */
+.learning-concept .concept-content,
+.practical-training .practical-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.concept-image, 
+.practical-image {
+  flex: 1;
+}
+
+.concept-image img,
+.practical-image img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.concept-text,
+.practical-text {
+  flex: 1;
+}
+
+.simulator-training {
+  background-color: var(--adac-gray);
+}
+
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.offer-card {
+  background-color: var(--adac-white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.offer-card:hover {
+  transform: translateY(-5px);
+}
+
+.offer-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.offer-content {
+  padding: 20px;
+}
+
+.price-comparison {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.price-card {
+  background-color: var(--adac-gray);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.price-card.highlight {
+  background-color: var(--adac-white);
+  border: 2px solid var(--adac-yellow);
+  position: relative;
+}
+
+.price-card.highlight::before {
+  content: 'Empfohlen';
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--adac-yellow);
+  color: var(--adac-black);
+  padding: 5px 15px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-bottom-left-radius: 8px;
+}
+
+.price-header {
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.price-tag {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.price-features {
+  padding: 20px;
+}
+
+.price-features ul {
+  list-style: none;
+}
+
+.price-features li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.price-features i {
+  margin-right: 10px;
+  color: var(--adac-green);
+}
+
+.price-features i.fa-times {
+  color: var(--adac-red);
+}
+
+.price-footer {
+  padding: 20px;
+  text-align: center;
+}
+
+.price-notes {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: var(--adac-white);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.success-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--adac-yellow);
+  border-radius: 8px;
+  min-width: 200px;
+  margin: 10px;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.stat-text {
+  font-weight: 600;
+}
+
+.faq-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  background-color: var(--adac-white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+  padding: 15px 20px;
+  background-color: var(--adac-yellow);
+  cursor: pointer;
+}
+
+.faq-question h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.faq-answer {
+  padding: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.registration-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.location-finder {
+  background-color: var(--adac-gray);
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.location-map {
+  height: 300px;
+  margin-top: 20px;
+}
+
+.location-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+/* For franchise.html */
+.models-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.model-card {
+  background-color: var(--adac-white);
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.model-card:hover {
+  transform: translateY(-5px);
+}
+
+.model-icon {
+  font-size: 2.5rem;
+  color: var(--adac-yellow);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.model-content h3 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.benefits-grid,
+.quality-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.benefit-card,
+.quality-card {
+  background-color: var(--adac-white);
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.benefit-card:hover,
+.quality-card:hover {
+  transform: translateY(-5px);
+}
+
+.benefit-icon,
+.quality-icon {
+  font-size: 2.5rem;
+  color: var(--adac-yellow);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.benefit-content h3,
+.quality-content h3 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.fee-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.fee-card {
+  background-color: var(--adac-white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.fee-header {
+  padding: 20px;
+  text-align: center;
+  background-color: var(--adac-yellow);
+}
+
+.fee-details {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.fee-item h4 {
+  margin-bottom: 10px;
+  color: var(--adac-black);
+}
+
+.fee-footer {
+  padding: 20px;
+  text-align: center;
+  background-color: var(--adac-gray);
+}
+
+.process-steps {
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.step {
+  display: flex;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  height: calc(100% + 10px);
+  width: 2px;
+  background-color: var(--adac-yellow);
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background-color: var(--adac-yellow);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  margin-right: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.value-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.value-card {
+  background-color: var(--adac-white);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.value-card h3 {
+  margin-bottom: 15px;
+  color: var(--adac-black);
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--adac-yellow);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .learning-concept .concept-content,
+  .practical-training .practical-content,
+  .infrastructure-content,
+  .simulator-content,
+  .instructor-content,
+  .marketing-content,
+  .cross-selling-content,
+  .support-content,
+  .security-content {
+    flex-direction: column;
+  }
+  
+  .concept-image, 
+  .practical-image,
+  .infrastructure-image,
+  .simulator-image,
+  .instructor-image,
+  .marketing-image,
+  .cross-selling-image,
+  .support-image,
+  .security-image {
+    margin-bottom: 20px;
+  }
+  
+  .fee-details {
+    grid-template-columns: 1fr;
+  }
+  
+  .registration-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .success-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .stat-item {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 15px;
+  }
+  
+  .process-steps {
+    padding-left: 20px;
+  }
+  
+  .step {
+    flex-direction: column;
+  }
+  
+  .step-number {
+    margin-bottom: 10px;
+  }
+  
+  .step:not(:last-child)::after {
+    left: 20px;
+    top: 40px;
+    height: calc(100% - 30px);
+  }
+}
+
+/* Animation effects */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-title,
+.feature-card,
+.simulator-content,
+.testimonial-card,
+.news-card,
+.model-card,
+.benefit-card,
+.quality-card,
+.step,
+.value-card {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Delay animations for staggered effect */
+.feature-card:nth-child(2),
+.testimonial-card:nth-child(2),
+.news-card:nth-child(2),
+.model-card:nth-child(2),
+.benefit-card:nth-child(2),
+.quality-card:nth-child(2),
+.step:nth-child(2),
+.value-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.feature-card:nth-child(3),
+.testimonial-card:nth-child(3),
+.news-card:nth-child(3),
+.model-card:nth-child(3),
+.step:nth-child(3),
+.value-card:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.model-card:nth-child(4),
+.step:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.step:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+/* Form styling enhancements */
+.form-group.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.form-group.checkbox input {
+  width: auto;
+  margin-right: 10px;
+}
+
+.form-group.checkbox label {
+  margin-bottom: 0;
+}
+
+.form-group input.error,
+.form-group textarea.error,
+.form-group select.error {
+  border-color: var(--adac-red);
+}
+
+/* Print styles */
+@media print {
+  header, footer, .cta-buttons, .contact-form, form {
+    display: none;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: none;
+  }
+  
+  section {
+    page-break-inside: avoid;
+    margin-bottom: 20pt;
+  }
+  
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+  
+  img {
+    max-width: 100% !important;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--adac-black);
+  }
+  
+  .hero {
+    height: auto;
+    min-height: 0;
+    color: var(--adac-black);
+  }
+  
+  .hero::before {
+    display: none;
+  }
+}
